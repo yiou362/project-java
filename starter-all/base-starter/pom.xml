@@ -5,17 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>project-java</artifactId>
+        <artifactId>starter-all</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>starter</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>base-starter</module>
-        <module>ignite-starter</module>
-    </modules>
+    <artifactId>base-starter</artifactId>
 
     <properties>
 
