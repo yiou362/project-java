@@ -6,20 +6,21 @@
 
     <groupId>org.example</groupId>
     <artifactId>project-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>api-usage</module>
         <module>starter</module>
         <module>main</module>
-        <module>api-usage/se</module>
-        <module>api-usage/ee</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <revision>1.0.0-SNAPSHOT</revision>
     </properties>
 
 </project>
