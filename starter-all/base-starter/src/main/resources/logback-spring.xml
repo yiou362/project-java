@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <springProperty name="MODULE_NAME" scope="context"  source="spring.application.name"/>
+    <springProperty name="ACTIVE" scope="context"  source="spring.profiles.active"/>
+
+    <!--Get hostname-->
+    <define name="HOSTNAME" class="com.yale.projectj.base.context.HostNamePropertyDefiner"/>
+    <timestamp key="LOG_DATE" datePattern="yyyy-MM-dd"/>
+
+    <property name="LOG_BASE" value="logs"/>
+    <property name="LOG_PATTERN" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"/>
+
+    <conversionRule conversionWord="customFields" converterClass="com.yale.projectj.base.context.LogCustomFieldConverter" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) %red([%thread]) %highlight(%-5level) %green(%customFields) %cyan(%logger{50}) - %magenta(%msg) %n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <!-- ch.qos.logback.core.rolling.RollingFileAppender : Scroll output to a file -->
+    <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_BASE}/info.log</file>
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <pattern>
+                    <pattern>
+                        {
+                        "timestamp": "%date{\"yyyy-MM-dd'T'HH:mm:ss,SSSXXX\", UTC}",
+                        "app": "${MODULE_NAME}",
+                        "env": "${ACTIVE}",
+                        "host": "${HOSTNAME}",
+                        <!--Log level-->
+                        "level": "%level",
+                        "pid": "${PID:-}",
+                        "thread": "%thread",
+                        "ctx": "%customFields",
+                        "class": "%logger",
+                        "method": "%method",
+                        "line": "%line",
+                        <!--Log Printed Information-->
+                        "message": "%message",
+                        <!--Stack Exception Message-->
+                        "stack_trace":"%xEx"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <prudent>false</prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BASE}/info-%d{yyyy-MM-dd}.log.%i.gz</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>20</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_BASE}/err.log</file>
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <pattern>
+                    <pattern>
+                        {
+                        "timestamp": "%date{\"yyyy-MM-dd'T'HH:mm:ss,SSSXXX\", UTC}",
+                        "app": "${MODULE_NAME}",
+                        "env": "${ACTIVE}",
+                        "host": "${HOSTNAME}",
+                        <!--Log level-->
+                        "level": "%level",
+                        "pid": "${PID:-}",
+                        "thread": "%thread",
+                        "ctx": "%customFields",
+                        "class": "%logger",
+                        "method": "%method",
+                        "line": "%line",
+                        <!--Log Printed Information-->
+                        "message": "%message",
+                        <!--Stack Exception Message-->
+                        "stack_trace":"%xEx"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+        <prudent>false</prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_BASE}/err-%d{yyyy-MM-dd}.log.%i.gz</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+
+
+    <!-- System module log level control  -->
+    <logger name="ird.ntp" level="info"/>
+    <logger name="org.springframework" level="warn"/>
+
+    <root level="info">
+        <appender-ref ref="file_info"/>
+        <appender-ref ref="file_error"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

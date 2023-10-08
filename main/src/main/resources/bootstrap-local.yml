@@ -1,0 +1,7 @@
+server:
+  port: 8082
+
+ignite:
+  endpoint: 127.0.0.1:10800
+  max-retry: 3
+  retry-delay: 3000
