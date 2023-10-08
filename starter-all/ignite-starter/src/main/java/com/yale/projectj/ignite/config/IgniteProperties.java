@@ -1,26 +1,22 @@
 package com.yale.projectj.ignite.config;
 
-import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 
 /**
  * @author Yale
  */
 
+@AutoConfiguration(before = {IgniteConfiguration.class})
 @Data
-@ConfigurationProperties(prefix = "ignite")
 @Slf4j
 public class IgniteProperties {
+    @Value("${ignite.endpoint}")
     private String endpoint;
+    @Value("${ignite.max-retry:3}")
     private Integer maxRetry;
+    @Value("${ignite.retry-delay:1000}")
     private Integer retryDelay;
-
-
-    @PostConstruct
-    public void init() {
-        log.info("ignite properties start to init.");
-    }
 }

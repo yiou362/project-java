@@ -18,6 +18,7 @@ public class IgniteConfiguration {
 
     @Bean
     public IgniteClient createIgniteClient() {
+        log.info("start to connect to ignite server.");
         ClientConfiguration cfg = new ClientConfiguration().setAddresses(igniteProperties.getEndpoint());
         IgniteClient igniteClient = null;
         int time = 0;
