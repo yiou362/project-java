@@ -1,5 +1,8 @@
 package com.yale.projectj;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import lombok.*;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.binary.BinaryObjectException;
@@ -12,6 +15,8 @@ import org.apache.ignite.client.IgniteClient;
 import org.apache.ignite.configuration.ClientConfiguration;
 import org.apache.ignite.lang.IgniteBiPredicate;
 import org.apache.ignite.lang.IgniteClosure;
+import org.json.JSONException;
+import org.json.JSONString;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -22,7 +27,10 @@ import java.io.Serializable;
 import java.lang.management.ManagementFactory;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
  * @author Yale
@@ -44,16 +52,39 @@ public class IgniteApiTest {
 
 
     @Test
-    public void kvApi() {
-        ClientCache<Integer, Person> cache = client.getOrCreateCache("cache2");
-        cache.put(0, new Person().builder().id(1).name("小名").build());
-        cache.put(1, new Person().builder().id(99).name("小红").build());
+    public void kvApi() throws JSONException {
+//        ClientCache<Integer, Person> cache = client.getOrCreateCache("cache");
+//        cache.put(0, new Person().builder().id(1).name("小名").build());
+//        cache.put(0, new Person().builder().id(99).name("小红").build());
+//        cache.put(0, new Person().builder().id(99).name("小东").build());
+//
+//        Person p1 = cache.get(0);
+//
+//
+//
+//        Assertions.assertEquals("小东", p1.getName());
 
-        Person p1 = cache.get(0);
-        Person p2 = cache.get(1);
-        Assertions.assertEquals("小名", p1.getName());
-        Assertions.assertEquals("小红", p2.getName());
+         final Set<ServiceConfig> set = new ConcurrentSkipListSet<>((a, b) -> {
+            String ahp = a.getService() + a.getEndPoint();
+            String bhp = b.getService() + b.getEndPoint();
+            return ahp.compareTo(bhp);
+        });
+        set.add(new ServiceConfig("testName", "testEndpoint"));
 
+        ClientCache<String, String> cache = client.getOrCreateCache("service-config-set-grpc-swagger");
+//        JSONArray value = cache.get("service-config-set");
+//        System.out.println(value);
+
+        cache.put("service-config-set", JSON.toJSONString(set));
+        String str = cache.get("service-config-set");
+
+        List<ServiceConfig> list = JSON.parseArray(str, ServiceConfig.class);
+
+//        for (int i = 0; i < jsonArray.length(); ++i) {
+//            set.add((ServiceConfig) jsonArray.get(i));
+//        }
+        set.addAll(list);
+        System.out.println(set);
     }
 
     @Test
@@ -84,4 +115,13 @@ public class IgniteApiTest {
         Integer id;
         String name;
     }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public class ServiceConfig {
+        private String service;
+        private String endPoint;
+    }
+
 }

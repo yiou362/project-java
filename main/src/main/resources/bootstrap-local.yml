@@ -3,3 +3,20 @@ server:
 
 ignite:
   endpoint: 127.0.0.1:10800
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: projectj-local
+        username: nacos
+        password: nacos
+        prefix: projectj-main
+        group: DEFAULT_GROUP
+        file-extension: yaml
+
+
+
+
+

@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.example</groupId>
         <artifactId>project-java</artifactId>
-        <version>${revision}</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>starter-all</artifactId>
@@ -15,6 +15,8 @@
     <modules>
         <module>base-starter</module>
         <module>ignite-starter</module>
+        <module>grpc-starter</module>
+        <module>nacos-starter</module>
     </modules>
 
     <properties>

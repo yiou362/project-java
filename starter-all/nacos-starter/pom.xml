@@ -9,26 +9,33 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>base-starter</artifactId>
+    <artifactId>nacos-starter</artifactId>
 
     <properties>
-
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>base-starter</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>3.0.5</version>
         </dependency>
     </dependencies>
+
 </project>
