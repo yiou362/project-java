@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author Yale
  */
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.yale.projectj.**"})
 @EnableTransactionManagement
 public class AppApplication {
 

@@ -1,4 +1,4 @@
-package org.yale.projectj.ignite.config;
+package com.yale.projectj.ignite.config;
 
 import com.alibaba.cloud.nacos.NacosConfigManager;
 import com.alibaba.nacos.api.config.listener.Listener;
@@ -19,9 +19,9 @@ public class NacosListener {
     @Autowired
     NacosConfigManager configManager;
 
-    private static final String DATA_ID = "";
+    private static final String DATA_ID = "pj-main.yaml";
 
-    private static final String GROUP = "";
+    private static final String GROUP = "DEFAULT_GROUP";
 
     @PostConstruct
     private void addListener() throws NacosException {

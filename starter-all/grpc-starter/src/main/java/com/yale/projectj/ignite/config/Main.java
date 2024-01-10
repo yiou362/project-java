@@ -1,4 +1,4 @@
-package org.yale.projectj.ignite.config;
+package com.yale.projectj.ignite.config;
 
 import io.grpc.protobuf.services.ProtoReflectionService;
 
