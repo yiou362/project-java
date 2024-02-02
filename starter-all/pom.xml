@@ -17,6 +17,7 @@
         <module>ignite-starter</module>
         <module>grpc-starter</module>
         <module>nacos-starter</module>
+        <module>batch-starter</module>
     </modules>
 
     <properties>

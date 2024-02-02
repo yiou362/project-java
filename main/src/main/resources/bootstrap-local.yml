@@ -2,6 +2,7 @@ server:
   port: 8082
 
 ignite:
+  enabled: false
   endpoint: 127.0.0.1:10800
 
 spring:

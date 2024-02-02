@@ -6,12 +6,14 @@ import org.apache.ignite.client.ClientConnectionException;
 import org.apache.ignite.client.IgniteClient;
 import org.apache.ignite.configuration.ClientConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 
 /**
  * @author Yale
  */
 @Slf4j
+@ConditionalOnProperty(value = "ignite.enabled", havingValue = "true")
 public class IgniteConfiguration {
     @Autowired
     IgniteProperties igniteProperties;

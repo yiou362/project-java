@@ -19,4 +19,6 @@ public class IgniteProperties {
     private Integer maxRetry;
     @Value("${ignite.retry-delay:1000}")
     private Integer retryDelay;
+    @Value("${ignite.enabled}")
+    private Boolean enabled;
 }

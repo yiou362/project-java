@@ -1,5 +1,6 @@
 package com.yale.projectj;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
@@ -14,5 +15,7 @@ public class InstantsSample {
         Date d = Date.from(Instant.parse(t));
         d.setTime(0);
 //        Instant.parse(t);
+
+        System.out.println(new Date().toInstant().toString());
     }
 }
