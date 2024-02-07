@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Yale
@@ -15,6 +16,8 @@ import lombok.Data;
 @Table(name = "people")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person {
     @Id
     long personId;

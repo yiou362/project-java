@@ -1,14 +1,9 @@
 package com.yale.projectj;
 
-import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
-import org.springframework.batch.core.launch.JobLauncher;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.jdbc.support.JdbcTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -17,11 +12,22 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication(scanBasePackages = {"com.yale.projectj.**"})
 @EnableTransactionManagement
-@EnableBatchProcessing()
+@EnableBatchProcessing
 public class AppApplication {
 
     public static void main(String[] args) throws Exception {
-        System.exit(SpringApplication.exit(SpringApplication.run(AppApplication.class, args)));
+        ConfigurableApplicationContext context = SpringApplication.run(AppApplication.class);
+        String[] strings = context.getBeanDefinitionNames();
+        for (String str : strings) {
+            if (str.equalsIgnoreCase("BatchAutoConfiguration")) {
+                System.out.println(str);
+            }
+        }
+//        System.exit(SpringApplication.exit(SpringApplication.run(AppApplication.class)));
+//        ConfigurableApplicationContext context = SpringApplication.run(AppApplication.class, args);
+//        JobLauncher jobLauncher = context.getBean(JobLauncher.class);
+//        Job job = context.getBean(Job.class);
+//        jobLauncher.run(job, new JobParameters());
     }
 
 }

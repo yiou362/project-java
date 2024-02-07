@@ -66,10 +66,15 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.batch</groupId>-->
+<!--            <artifactId>spring-batch-core</artifactId>-->
+<!--            <version>5.0.2</version>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>org.springframework.batch</groupId>
-            <artifactId>spring-batch-core</artifactId>
-            <version>5.0.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-batch</artifactId>
+            <version>3.1.0</version>
         </dependency>
 
 <!--        <dependency>-->

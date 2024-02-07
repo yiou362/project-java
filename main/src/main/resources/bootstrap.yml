@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: local
+  batch:
+    job:
+      enabled: true
 
 logging:
   config: classpath:logback-spring.xml

@@ -1,7 +1,9 @@
 package projectj.time;
 
 import java.io.*;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -11,7 +13,7 @@ import java.util.Date;
 public class InstantSample {
     public static void main(String[] args) {
 //        String data = "Hello, World!"; // 要写入文件的数据
-
+//
 //
 //        String userHome = System.getProperty("user.home");
 //        String directoryPath = userHome + File.separator + "temp-file";
@@ -31,9 +33,20 @@ public class InstantSample {
 //            System.out.println("写入文件时出现错误: " + e.getMessage());
 //        }
 //        System.out.println(new Date().toInstant().toString());
-        long time = 1706841418111L / 1000 * 1000;
-        System.out.println(time);
-        System.out.println(new Date(time));
+        Instant i1 = new Date().toInstant();
+        Instant i2 = Instant.parse("1582-01-01T15:54:17.001Z");
+        System.out.println(i2.toEpochMilli());
 
+        System.out.println(i1.toString());
+        System.out.println(i2.toString());
+
+
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(i2, ZoneId.systemDefault());
+        System.out.println(localDateTime);
+        System.out.println(Date.from(i2));
+        System.out.println(Date.from(i1));
+
+    System.out.println(System.currentTimeMillis());
+        System.out.println(i2.getEpochSecond());
     }
 }
