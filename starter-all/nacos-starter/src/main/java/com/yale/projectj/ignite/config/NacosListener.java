@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 /**
  * @author Yale
  */
-@Configuration
+//@Configuration
 @Slf4j
 public class NacosListener {
     @Autowired
@@ -33,7 +33,7 @@ public class NacosListener {
 
             @Override
             public void receiveConfigInfo(String configInfo) {
-                log.info(configInfo);
+//                log.info(configInfo);
             }
         };
         configManager.getConfigService().addListener(DATA_ID, GROUP, listener);

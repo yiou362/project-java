@@ -1,5 +1,6 @@
 spring:
   datasource:
-  url: jdbc:postgresql://localhost:5432/kong
-  username: kong
-  password: kongpass
+    url: jdbc:mariadb://localhost:3306/test
+    username: root
+    password: password
+    driver-class: org.mariadb.jdbc.Driver

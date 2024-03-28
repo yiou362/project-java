@@ -9,6 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 将线程私有变量在线程间传递
  * @author Yale
  */
 public class TransmittableThreadLocalSample {

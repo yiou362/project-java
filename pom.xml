@@ -13,6 +13,7 @@
         <module>api-usage</module>
         <module>starter-all</module>
         <module>main</module>
+        <module>tasks</module>
     </modules>
 
     <properties>

@@ -1,11 +1,9 @@
 server:
   port: 8082
 
-ignite:
-  enabled: false
-  endpoint: 127.0.0.1:10800
-
 spring:
+  application:
+    name: printTask
   cloud:
     nacos:
       config:
@@ -16,9 +14,3 @@ spring:
         prefix: pj-main
         group: DEFAULT_GROUP
         file-extension: yaml
-
-
-
-
-
-
