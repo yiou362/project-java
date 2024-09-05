@@ -2,8 +2,8 @@ package com.yale.projectj.config;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.alibaba.nacos.api.config.ConfigService;
-import com.alibaba.nacos.api.exception.NacosException;
+//import com.alibaba.nacos.api.config.ConfigService;
+//import com.alibaba.nacos.api.exception.NacosException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,8 +26,8 @@ import javax.annotation.Resource;
 @Data
 public class AppConfiguration {
 
-    @Value("${mykey}")
-    private String config;
+//    @Value("${mykey}")
+//    private String config;
 
     //    @Resource(name = "sysPropConfigService")
 //    ConfigService configService;

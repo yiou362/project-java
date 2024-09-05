@@ -1,8 +1,6 @@
 package com.yale.projectj.controller;
 
 import com.yale.projectj.config.AppConfiguration;
-import com.yale.projectj.config.CustomNacosConfiguration;
-import jdk.jfr.Registered;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class PrintController {
     @Autowired
     AppConfiguration appConfiguration;
-    @Autowired
-    CustomNacosConfiguration customNacosConfiguration;
-
-    @RequestMapping(value = "/my-key", method = RequestMethod.GET)
-    public void printMyKey() {
-        log.info(appConfiguration.getConfig());
-        log.info(customNacosConfiguration.getOperationMode());
-    }
+//    @Autowired
+//    CustomNacosConfiguration customNacosConfiguration;
+//
+//    @RequestMapping(value = "/my-key", method = RequestMethod.GET)
+//    public void printMyKey() {
+//        log.info(appConfiguration.getConfig());
+//        log.info(customNacosConfiguration.getOperationMode());
+//    }
 }

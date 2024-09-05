@@ -55,8 +55,4 @@ public class TxService {
             }
         }
     }
-
-    public int countAccount() {
-
-    }
 }

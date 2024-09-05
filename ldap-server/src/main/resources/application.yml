@@ -1,0 +1,8 @@
+spring:
+  ldap:
+    embedded:
+      ldif: testUsers.ldif
+      base-dn: uid=ben,ou=people,dc=didispace,dc=com
+    urls: ldap://127.0.0.1:389
+    username: admin
+    password: 123456

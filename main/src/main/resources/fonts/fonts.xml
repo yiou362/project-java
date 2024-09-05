@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <!--
+        可以配置多个字体
+        name 属性：指定字体名称，这里的字体名称在 JasperReport 模板文件中使用的要一致，才能够匹配上
+    -->
+    <fontFamily name="SourceHanSerifHK-VF">
+        <!-- 正常字体路径 -->
+        <normal><![CDATA[fonts/SourceHanSerifHK-VF.ttf]]></normal>
+        <!-- 加粗斜体字体路径 -->
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+        <pdfEncoding>Identity-H</pdfEncoding>
+        <exportFonts/>
+    </fontFamily>
+
+</fontFamilies>

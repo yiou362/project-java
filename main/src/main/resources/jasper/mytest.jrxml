@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mytest" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="abf72bd3-1336-4246-b9e9-0870435c95e6">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <field name="ldr_name_2" class="java.lang.String">
+        <fieldDescription><![CDATA[ldr_name_2]]></fieldDescription>
+    </field>
+    <field name="bwr_name_2" class="java.lang.String">
+        <fieldDescription><![CDATA[bwr_name_2]]></fieldDescription>
+    </field>
+    <field name="bwr_name_1" class="java.lang.String">
+        <fieldDescription><![CDATA[bwr_name_1]]></fieldDescription>
+    </field>
+    <field name="ref_num" class="java.lang.String">
+        <fieldDescription><![CDATA[ref_num]]></fieldDescription>
+    </field>
+    <field name="submission_time" class="java.lang.String">
+        <fieldDescription><![CDATA[submission_time]]></fieldDescription>
+    </field>
+    <field name="bwr_name_3" class="java.lang.String">
+        <fieldDescription><![CDATA[bwr_name_3]]></fieldDescription>
+    </field>
+    <field name="exe_date_y" class="java.lang.String">
+        <fieldDescription><![CDATA[exe_date_y]]></fieldDescription>
+    </field>
+    <field name="ldr_name_1" class="java.lang.String">
+        <fieldDescription><![CDATA[ldr_name_1]]></fieldDescription>
+    </field>
+    <field name="exe_date_m" class="java.lang.String">
+        <fieldDescription><![CDATA[exe_date_m]]></fieldDescription>
+    </field>
+    <field name="ldr_name_3" class="java.lang.String">
+        <fieldDescription><![CDATA[ldr_name_3]]></fieldDescription>
+    </field>
+    <field name="exe_date_d" class="java.lang.String">
+        <fieldDescription><![CDATA[exe_date_d]]></fieldDescription>
+    </field>
+    <field name="sba_num" class="java.lang.String">
+        <fieldDescription><![CDATA[sba_num]]></fieldDescription>
+    </field>
+    <field name="pay_amount" class="java.lang.String">
+        <fieldDescription><![CDATA[pay_amount]]></fieldDescription>
+    </field>
+    <field name="pay_method" class="java.lang.String">
+        <fieldDescription><![CDATA[pay_method]]></fieldDescription>
+    </field>
+    <field name="pay_type" class="java.lang.String">
+        <fieldDescription><![CDATA[pay_type]]></fieldDescription>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <detail>
+        <band height="548" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <staticText>
+                <reportElement x="0" y="0" width="520" height="20" uuid="0085b0f9-7da9-4bb8-aef8-e14ee109335d">
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[證券借用及借出協議登記 – 確認遞交通知]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="310" y="210" width="210" height="40" uuid="2832a31b-5915-4104-b8ec-6b3e23441368">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bwr_name_1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="30" width="520" height="60" uuid="01e6829b-9efa-450b-b028-1a575bc86488">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pay_method}.equals("O")?"你以 " + $F{pay_type} + " 繳付 HK$" + $F{pay_amount} + " 已收妥，你的申請已遞交稅務局。":"你的申請已遞交稅務局。由於你選擇從你的存款戶口繳付登記費 HK$" + $F{pay_amount} + "，有關遞交登記須在確定你的存款戶口有足夠餘額以繳付全數登記費才可視為有效。"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="90" width="300" height="20" uuid="f3d7796a-3c9b-4893-8ff1-06066916afd1">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[交易參考編號:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="120" width="300" height="20" uuid="d78e0e6a-77d5-4804-b300-d9ec0250f5bd">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[遞交日期:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="150" width="300" height="20" uuid="548127bd-8de4-4007-8cf1-bb9cfa94a89f">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[證券借用及借出協議檔案號碼 (SBA No.):]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="180" width="300" height="20" uuid="9aaa2384-7022-4344-b4a0-7b4e83d96f21">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[簽立日期:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="210" width="300" height="20" uuid="2b687b95-8336-4f49-8dac-43a76f899eb5">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[借用人姓名:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="310" y="255" width="210" height="40" uuid="265ebafb-9ee7-4acf-a9b5-ecb2b12888cd">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bwr_name_2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="310" y="300" width="210" height="40" uuid="687f94b2-666c-4e56-9aad-e6d2402cb64e">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bwr_name_3}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="350" width="300" height="20" uuid="e94b358d-2a93-4458-aeac-568365b3d562">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[借出人姓名:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="310" y="350" width="210" height="40" uuid="47acdf6c-bb11-4341-b80a-c48ded11b9c2">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ldr_name_1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="310" y="395" width="210" height="40" uuid="70848eb4-c88e-463a-bb69-4c1b83ec1673">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bwr_name_2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="310" y="440" width="210" height="40" uuid="d601143d-1f87-4ba2-9c37-d636dd1b4d11">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bwr_name_3}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="490" width="50" height="20" uuid="e5f3148b-0ad0-43cf-afb6-b6f3d3749043">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[註:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="510" width="520" height="21" uuid="4cc2db6a-b5aa-4bba-9aa7-d47117381420">
+                    <property name="com.jaspersoft.studio.unit.x" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="SourceHanSerifHK-VF" size="12"/>
+                </textElement>
+                <text><![CDATA[當登記獲批後，本局將向你發出電郵以作通知，你可下載/列印獲准登記函件存檔。]]></text>
+            </staticText>
+        </band>
+    </detail>
+</jasperReport>

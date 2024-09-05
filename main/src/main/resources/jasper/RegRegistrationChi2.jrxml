@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RegRegistrationChi" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="a38fbaf7-abd5-4b27-aaac-338bf9458ac8">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<field name="ldr_name_2" class="java.lang.String"/>
+	<field name="bwr_name_2" class="java.lang.String"/>
+	<field name="bwr_name_1" class="java.lang.String"/>
+	<field name="ref_num" class="java.lang.String"/>
+	<field name="submission_time" class="java.lang.String"/>
+	<field name="bwr_name_3" class="java.lang.String"/>
+	<field name="exe_date_y" class="java.lang.String"/>
+	<field name="ldr_name_1" class="java.lang.String"/>
+	<field name="exe_date_m" class="java.lang.String"/>
+	<field name="ldr_name_3" class="java.lang.String"/>
+	<field name="exe_date_d" class="java.lang.String"/>
+	<field name="sba_num" class="java.lang.String"/>
+	<field name="pay_amount" class="java.lang.String"/>
+	<field name="pay_method" class="java.lang.String"/>
+	<field name="pay_type" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="548" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-1" stretchType="RelativeToTallestObject" x="0" y="0" width="520" height="20" isPrintWhenDetailOverflows="true" uuid="2d962d6d-68fb-47ce-af53-66fde3f3abdb"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[證券借用及借出協議登記 – 確認遞交通知]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-2" stretchType="RelativeToTallestObject" x="0" y="90" width="300" height="20" isPrintWhenDetailOverflows="true" uuid="26be85ad-2b66-48ee-8dcf-8fc0d2d42099"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[交易參考編號:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-3" stretchType="RelativeToTallestObject" x="0" y="120" width="300" height="20" isPrintWhenDetailOverflows="true" uuid="380c246c-c3f5-4954-a89b-fc0c5f71ef06"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[遞交日期:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-4" stretchType="RelativeToTallestObject" x="0" y="150" width="300" height="20" isPrintWhenDetailOverflows="true" uuid="6e2fb819-82d1-4940-8bbe-d6a803814376"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[證券借用及借出協議檔案號碼 (SBA No.):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" stretchType="RelativeToTallestObject" x="0" y="180" width="300" height="20" isPrintWhenDetailOverflows="true" uuid="bf8a536d-3d94-4c98-bf8c-4ce58a82fd68"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[簽立日期:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-6" stretchType="RelativeToTallestObject" x="0" y="210" width="300" height="20" isPrintWhenDetailOverflows="true" uuid="be01ce29-c20c-45ac-9bee-941fca334e2d"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[借用人姓名:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" stretchType="RelativeToTallestObject" x="0" y="490" width="50" height="20" isPrintWhenDetailOverflows="true" uuid="147f946a-7ca4-49ab-8787-3471cdc70aa3"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[註:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-8" stretchType="RelativeToTallestObject" x="0" y="510" width="520" height="21" isPrintWhenDetailOverflows="true" uuid="bac2dbab-7235-45ea-96fc-59349ddc1b87"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[當登記獲批後，本局將向你發出電郵以作通知，你可下載/列印獲准登記函件存檔。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" stretchType="RelativeToTallestObject" x="0" y="350" width="300" height="20" isPrintWhenDetailOverflows="true" uuid="016f271c-c924-4a87-a6f5-2492133c7304"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="SourceHanSerifHK-VF" size="12" pdfFontName="SourceHanSerifHK-VF.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[借出人姓名:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

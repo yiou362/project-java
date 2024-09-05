@@ -6,18 +6,146 @@ ignite:
   endpoint: 127.0.0.1:10800
 
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 127.0.0.1:8848
-        namespace: projectj-local
-        username: nacos
-        password: nacos
-        prefix: pj-main
-        group: DEFAULT_GROUP
-        file-extension: yaml
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 127.0.0.1:8848
+#        namespace: projectj-local
+#        username: nacos
+#        password: nacos
+#        prefix: pj-main
+#        group: DEFAULT_GROUP
+#        file-extension: yaml
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #url: jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=TPDBNP01-VIP.npocp.tp.ird.hksarg)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=TPDBNP02-VIP.npocp.tp.ird.hksarg)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=etaxuat1)))
+    #url: jdbc:oracle:thin:@//TPDBNP02.npocp.tp.ird.hksarg:1521/etaxuat1
+    url: jdbc:oracle:thin:@//TPDBNP01.npocp.tp.ird.hksarg:1521/etaxuat1
+    #url: jdbc:oracle:thin:@//TPDBNP01-VIP.npocp.tp.ird.hksarg:1521/etaxuat2
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: TPWEB
+    password: etax#2023
+    socket-timeout: 900000
+    #username: ENC(B5XOHlyNMa4MaUIQrE5ABRxHl1tSQeQl0JBDXpf11aCswTtjfimeYuYu/LXIkEiY)
+    #password: ENC(0kzlmtCRjh+z5CXStzVtPAv0v5WHF0PBa5ufA0Q6N/4Oeva3WtKDVy/vGB6zYRNq)
+    druid:
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      # Number of physical connections established at initialization
+      initial-size: 1
+      # Minimum idle number in the connection pool
+      min-idle: 1
+      # Maximum number of connections in the connection pool
+      max-active: 10
+      # Maximum waiting time to get a connection, in milliseconds
+      max-wait: 60000
+      # When applying for a connection, it checks if the idle time is greater than timeBetweenEvictionRunsMillis, then executes validationQuery to check if the connection is valid.
+      test-while-idle: true
+      # This is used as both the detection interval and the basis for executing testWhileIdle
+      time-between-eviction-runs-millis: 60000
+      # When destroying threads, if the difference between the last active time of the current connection and the current time is more than this value, the current connection is closed (configuring the minimum survival time of the connection in the pool)
+      min-evictable-idle-time-millis: 30000
+      # The SQL used to check if the database connection is valid must be a query statement (in Oracle it's "select 1 from dual")
+      validation-query: SELECT 1 FROM DUAL
+      # When applying for a connection, it will execute validationQuery to check if the connection is valid. Turning this on will reduce performance, default is true
+      test-on-borrow: false
+      # When returning a connection, it will execute validationQuery to check if the connection is valid. Turning this on will reduce performance, default is true
+      test-on-return: false
+      # Whether to cache preparedStatement, that is, PSCache. PSCache greatly improves performance for databases that support cursors, such as Oracle. It is recommended to turn off for MySQL.
+      pool-prepared-statements: false
+      # Set the monitoring statistics intercept filters. Without it, SQL cannot be counted on the monitoring interface. stat: Monitoring statistics, Slf4j: Log recording, waLL: Defend against SQL injection
+      filters: stat,wall,slf4j
+      # To enable PSCache, it must be configured greater than 0. When it is greater than 0, poolPreparedStatements is automatically triggered to change to true. In Druid, there will be no problem of PSCache occupying too much memory in Oracle, so this value can be configured larger, such as 100
+      max-pool-prepared-statement-per-connection-size: -1
+      # Merge the monitoring data of multiple DruidDataSources
+      use-global-data-source-stat: true
+      # Enable mergeSql function through connectProperties property; slow SQL record
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      connect-timeout: 100001
+      socket-timeout: 120001
+      web-stat-filter:
+        # Whether to enable StatFilter, default value is true
+        enabled: true
+        # Add filter rules
+        url-pattern: /*
+        # Ignore the filtering format
+        exclusions: /druid/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico
 
+      stat-view-servlet:
+        # Whether to enable StatViewServlet, default value is true
+        enabled: true
+        # When accessing /druid, redirect to StatViewServlet
+        url-pattern: /druid/*
+        # Whether data can be reset
+        reset-enable: false
+        # Console access requires username and password, default is root
+        login-username: druid
+        login-password: druid
+        # IP whitelist
+        allow: 127.0.0.1
+    #username: ENC(B5XOHlyNMa4MaUIQrE5ABRxHl1tSQeQl0JBDXpf11aCswTtjfimeYuYu/LXIkEiY)
+    #password: ENC(0kzlmtCRjh+z5CXStzVtPAv0v5WHF0PBa5ufA0Q6N/4Oeva3WtKDVy/vGB6zYRNq)
+#    druid:
+#      driver-class-name: oracle.jdbc.OracleDriver
+#      # Number of physical connections established at initialization
+#      initial-size: 1
+#      # Minimum idle number in the connection pool
+#      min-idle: 1
+#      # Maximum number of connections in the connection pool
+#      max-active: 10
+#      # Maximum waiting time to get a connection, in milliseconds
+#      max-wait: 60000
+#      # When applying for a connection, it checks if the idle time is greater than timeBetweenEvictionRunsMillis, then executes validationQuery to check if the connection is valid.
+#      test-while-idle: true
+#      # This is used as both the detection interval and the basis for executing testWhileIdle
+#      time-between-eviction-runs-millis: 60000
+#      # When destroying threads, if the difference between the last active time of the current connection and the current time is more than this value, the current connection is closed (configuring the minimum survival time of the connection in the pool)
+#      min-evictable-idle-time-millis: 30000
+#      # The SQL used to check if the database connection is valid must be a query statement (in Oracle it's "select 1 from dual")
+#      validation-query: SELECT 'x' FROM DUAL
+#      # When applying for a connection, it will execute validationQuery to check if the connection is valid. Turning this on will reduce performance, default is true
+#      test-on-borrow: false
+#      # When returning a connection, it will execute validationQuery to check if the connection is valid. Turning this on will reduce performance, default is true
+#      test-on-return: false
+#      # Whether to cache preparedStatement, that is, PSCache. PSCache greatly improves performance for databases that support cursors, such as Oracle. It is recommended to turn off for MySQL.
+#      pool-prepared-statements: false
+#      # Set the monitoring statistics intercept filters. Without it, SQL cannot be counted on the monitoring interface. stat: Monitoring statistics, Slf4j: Log recording, waLL: Defend against SQL injection
+#      filters: stat,wall,slf4j
+#      # To enable PSCache, it must be configured greater than 0. When it is greater than 0, poolPreparedStatements is automatically triggered to change to true. In Druid, there will be no problem of PSCache occupying too much memory in Oracle, so this value can be configured larger, such as 100
+#      max-pool-prepared-statement-per-connection-size: -1
+#      # Merge the monitoring data of multiple DruidDataSources
+#      use-global-data-source-stat: true
+#      # Enable mergeSql function through connectProperties property; slow SQL record
+#      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+#      connect-timeout: 100001
+#      socket-timeout: 120001
+#      web-stat-filter:
+#        # Whether to enable StatFilter, default value is true
+#        enabled: true
+#        # Add filter rules
+#        url-pattern: /*
+#        # Ignore the filtering format
+#        exclusions: /druid/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico
 
+#      stat-view-servlet:
+#        # Whether to enable StatViewServlet, default value is true
+#        enabled: true
+#        # When accessing /druid, redirect to StatViewServlet
+#        url-pattern: /druid/*
+#        # Whether data can be reset
+#        reset-enable: false
+#        # Console access requires username and password, default is root
+#        login-username: druid
+#        login-password: druid
+#        # IP whitelist
+#        allow: 127.0.0.1
+
+#  jpa:
+#    database: oracle
+#    open-in-view: false
+#    hibernate:
+#      ddl-auto: none
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
 
 

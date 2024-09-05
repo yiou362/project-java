@@ -86,16 +86,16 @@ public class PersonJobConfiguration {
                 .build();
     }
 
-    @Bean
-    public JobLauncherApplicationRunner jobLauncherApplicationRunner(JobLauncher jobLauncher, JobExplorer jobExplorer,
-                                                                     JobRepository jobRepository) {
-        JobLauncherApplicationRunner runner = new JobLauncherApplicationRunner(jobLauncher, jobExplorer, jobRepository);
-        runner.setJobName("importUserJob");
-//        String jobNames = properties.getJob().getName();
-//        if (StringUtils.hasText(jobNames)) {
-//            runner.setJobName(jobNames);
-//        }
-        return runner;
-    }
+//    @Bean
+//    public JobLauncherApplicationRunner jobLauncherApplicationRunner(JobLauncher jobLauncher, JobExplorer jobExplorer,
+//                                                                     JobRepository jobRepository) {
+//        JobLauncherApplicationRunner runner = new JobLauncherApplicationRunner(jobLauncher, jobExplorer, jobRepository);
+//        runner.setJobName("importUserJob");
+////        String jobNames = properties.getJob().getName();
+////        if (StringUtils.hasText(jobNames)) {
+////            runner.setJobName(jobNames);
+////        }
+//        return runner;
+//    }
 
 }
