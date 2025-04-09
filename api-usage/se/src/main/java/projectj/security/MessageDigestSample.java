@@ -48,17 +48,19 @@ public class MessageDigestSample {
         }
     }
 
-    // 加密
+    /**
+     * AES加密
+     */
     public static void aesEncryptAndDecrypt() {
         try {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
             keyGenerator.init(128);
             SecretKey pk = keyGenerator.generateKey();
             String painText = "Hello World!";
-            String encryptStr = encrypt(painText, pk);
+            String encryptStr = aesEncrypt(painText, pk);
             System.out.println("Encrypted Text: " + encryptStr);
 
-            String decryptData = decrypt(encryptStr, pk);
+            String decryptData = aesDecrypt(encryptStr, pk);
             System.out.println("Decrypted Data: " + decryptData );
 
         } catch (Exception e) {
@@ -66,19 +68,39 @@ public class MessageDigestSample {
         }
     }
 
-    public static String encrypt(String plainText, SecretKey key) throws Exception {
+    public static String aesEncrypt(String plainText, SecretKey key) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] encryptData = cipher.doFinal(plainText.getBytes((StandardCharsets.UTF_8)));
         return Base64.getEncoder().encodeToString(encryptData);
     }
 
-    public static String decrypt(String encryptedText, SecretKey key) throws Exception {
+    public static String aesDecrypt(String encryptedText, SecretKey key) throws Exception {
         byte[] encryptedBytes = Base64.getDecoder().decode(encryptedText);
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.DECRYPT_MODE, key);
         byte[] decryptData = cipher.doFinal(encryptedBytes);
         return new String(decryptData, StandardCharsets.UTF_8);
+    }
+
+    /**
+     * RSA加密解密
+     */
+
+    public static void rsaEncryptAndDecrypt() {
+        try {
+
+        } catch (Exception e) {
+
+        }
+    }
+
+    public static String generateSignature() {
+        return null;
+    }
+
+    public static boolean verifySignature() {
+        return false;
     }
 
 }
